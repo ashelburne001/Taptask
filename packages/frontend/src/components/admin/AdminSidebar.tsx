@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Users, Building2, Package, Settings, FileText, BarChart3, X } from 'lucide-react'
+import { Users, Building2, Package, Wifi, Settings, FileText, BarChart3, X } from 'lucide-react'
 
 interface AdminSidebarProps {
   isOpen: boolean
@@ -13,6 +13,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
     { href: '/admin/users', icon: Users, label: 'Users', badge: null },
     { href: '/admin/departments', icon: Building2, label: 'Departments', badge: null },
     { href: '/admin/items', icon: Package, label: 'Items', badge: null },
+    { href: '/admin/nfc', icon: Wifi, label: 'NFC Management', badge: null },
     { href: '/admin/settings', icon: Settings, label: 'Settings', badge: null },
     { href: '/admin/audit-logs', icon: FileText, label: 'Audit Logs', badge: null },
     { href: '/admin/analytics', icon: BarChart3, label: 'Analytics', badge: null },

@@ -1,0 +1,10 @@
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { AlertTriangle } from 'lucide-react';
+export default function ConfirmDialog({ isOpen, title, message, warning, onConfirm, onCancel, confirmLabel = 'Confirm', cancelLabel = 'Cancel', loading = false, isDangerous = false, }) {
+    if (!isOpen)
+        return null;
+    return (_jsxs(_Fragment, { children: [_jsx("div", { className: "fixed inset-0 bg-black bg-opacity-50 z-40", onClick: onCancel }), _jsx("div", { className: "fixed inset-0 flex items-center justify-center z-50 p-4", children: _jsxs("div", { className: "bg-white rounded-lg shadow-xl w-full max-w-md", children: [_jsx("div", { className: "p-6", children: _jsxs("div", { className: "flex items-start gap-4", children: [_jsx("div", { className: `flex-shrink-0 p-3 rounded-full ${isDangerous ? 'bg-red-100' : 'bg-yellow-100'}`, children: _jsx(AlertTriangle, { className: isDangerous ? 'w-6 h-6 text-red-600' : 'w-6 h-6 text-yellow-600' }) }), _jsxs("div", { className: "flex-1", children: [_jsx("h3", { className: "text-lg font-bold text-gray-900", children: title }), _jsx("p", { className: "text-gray-600 mt-1", children: message }), warning && (_jsx("div", { className: "mt-3 p-3 bg-orange-50 border border-orange-200 rounded-lg", children: _jsx("p", { className: "text-sm text-orange-800", children: warning }) }))] })] }) }), _jsxs("div", { className: "flex gap-3 justify-end p-6 border-t border-gray-200", children: [_jsx("button", { onClick: onCancel, disabled: loading, className: "px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition disabled:opacity-50", children: cancelLabel }), _jsx("button", { onClick: onConfirm, disabled: loading, className: `px-4 py-2 text-white rounded-lg transition disabled:opacity-50 ${isDangerous
+                                        ? 'bg-red-600 hover:bg-red-700'
+                                        : 'bg-brand-accentblue hover:bg-blue-700'}`, children: loading ? 'Processing...' : confirmLabel })] })] }) })] }));
+}
+//# sourceMappingURL=ConfirmDialog.js.map

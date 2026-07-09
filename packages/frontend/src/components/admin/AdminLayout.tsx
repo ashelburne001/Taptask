@@ -6,6 +6,7 @@ import UsersPage from './users/UsersPage'
 import DepartmentsPage from './departments/DepartmentsPage'
 import ItemsPage from './items/ItemsPage'
 import SettingsPage from './settings/SettingsPage'
+import NFCManagementPage from './nfc/NFCManagementPage'
 
 // Placeholder pages - to be implemented in next phases
 const AuditLogsPage = () => <div className="p-6">Audit Logs - Coming Soon (Phase 6)</div>
@@ -32,6 +33,7 @@ export default function AdminLayout() {
               <Route path="/users" element={<UsersPage />} />
               <Route path="/departments" element={<DepartmentsPage />} />
               <Route path="/items" element={<ItemsPage />} />
+              <Route path="/nfc" element={<NFCManagementPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/audit-logs" element={<AuditLogsPage />} />
               <Route path="/analytics" element={<AnalyticsPage />} />

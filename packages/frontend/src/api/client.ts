@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosError } from 'axios'
 import { useAuthStore } from '../store/authStore'
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
+const API_BASE_URL = (import.meta as any).env.VITE_API_URL || 'http://localhost:3000/api'
 
 class ApiClient {
   private client: AxiosInstance
@@ -94,6 +94,71 @@ class ApiClient {
 
   async getInventoryHealth() {
     const { data } = await this.client.get('/dashboard/inventory-health')
+    return data
+  }
+
+  // Users Management
+  async listUsers(role?: string, search?: string, departmentId?: string) {
+    const { data } = await this.client.get('/users', {
+      params: { role, search, departmentId },
+    })
+    return data
+  }
+
+  async createUser(userData: any) {
+    const { data } = await this.client.post('/users', userData)
+    return data
+  }
+
+  async updateUser(userId: string, userData: any) {
+    const { data } = await this.client.patch(`/users/${userId}`, userData)
+    return data
+  }
+
+  async deleteUser(userId: string) {
+    const { data } = await this.client.delete(`/users/${userId}`)
+    return data
+  }
+
+  // Departments Management
+  async listDepartments() {
+    const { data } = await this.client.get('/admin/departments')
+    return data
+  }
+
+  async createDepartment(deptData: any) {
+    const { data } = await this.client.post('/admin/departments', deptData)
+    return data
+  }
+
+  async updateDepartment(deptId: string, deptData: any) {
+    const { data } = await this.client.patch(`/admin/departments/${deptId}`, deptData)
+    return data
+  }
+
+  async deleteDepartment(deptId: string) {
+    const { data } = await this.client.delete(`/admin/departments/${deptId}`)
+    return data
+  }
+
+  // Items Management
+  async listItems() {
+    const { data } = await this.client.get('/admin/items')
+    return data
+  }
+
+  async createItem(itemData: any) {
+    const { data } = await this.client.post('/admin/items', itemData)
+    return data
+  }
+
+  async updateItem(itemId: string, itemData: any) {
+    const { data } = await this.client.patch(`/admin/items/${itemId}`, itemData)
+    return data
+  }
+
+  async deleteItem(itemId: string) {
+    const { data } = await this.client.delete(`/admin/items/${itemId}`)
     return data
   }
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { apiClient } from '../api/client'
 import { useAuthStore } from '../store/authStore'
-import { Loader, AlertCircle, Camera, Package } from 'lucide-react'
+import { Loader, AlertCircle, Package } from 'lucide-react'
 
 interface Bin {
   id: string
@@ -23,7 +23,7 @@ interface Bin {
 export default function TapPage() {
   const { binCode } = useParams()
   const navigate = useNavigate()
-  const { user } = useAuthStore()
+  useAuthStore()
   const [bin, setBin] = useState<Bin | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')

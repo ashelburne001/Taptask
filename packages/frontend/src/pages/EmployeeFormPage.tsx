@@ -4,25 +4,13 @@ import { apiClient } from '../api/client'
 import { useAuthStore } from '../store/authStore'
 import { CheckCircle, AlertCircle, Camera, Plus, Minus } from 'lucide-react'
 
-interface Bin {
-  id: string
-  code: string
-  itemName: string
-  itemNumber: string
-  gtin: string
-  parLevel: number
-  currentQuantity: number
-  departmentName: string
-}
-
 export default function EmployeeFormPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const { user } = useAuthStore()
   const binId = searchParams.get('binId')
 
-  const [bin, setBin] = useState<Bin | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [_loading, _setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -34,7 +22,7 @@ export default function EmployeeFormPage() {
   useEffect(() => {
     if (!binId) {
       setError('No bin selected')
-      setLoading(false)
+      _setLoading(false)
       return
     }
     // Fetch bin details from database using binId
@@ -45,10 +33,10 @@ export default function EmployeeFormPage() {
   async function fetchBinDetails() {
     try {
       // In a real scenario, we'd fetch from API
-      setLoading(false)
+      _setLoading(false)
     } catch (err) {
       setError('Failed to load bin details')
-      setLoading(false)
+      _setLoading(false)
     }
   }
 

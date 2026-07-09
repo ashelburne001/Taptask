@@ -21,7 +21,7 @@ interface User {
 
 export class AuthService {
   private jwtSecret = process.env.JWT_SECRET || 'dev-secret-change-me';
-  private jwtExpiry = process.env.JWT_EXPIRY || '24h';
+  private jwtExpiry: string | number = process.env.JWT_EXPIRY || '24h';
 
   async register(email: string, name: string, password: string, role: string = 'employee'): Promise<User> {
     const id = uuidv4();
@@ -99,14 +99,16 @@ export class AuthService {
   }
 
   generateToken(payload: TokenPayload): string {
-    return jwt.sign(payload, this.jwtSecret, {
-      expiresIn: this.jwtExpiry,
-    });
+    const secret = this.jwtSecret || 'dev-secret-change-me';
+    return jwt.sign(payload, secret, {
+      expiresIn: '24h',
+    } as any);
   }
 
   verifyToken(token: string): TokenPayload {
     try {
-      return jwt.verify(token, this.jwtSecret) as TokenPayload;
+      const secret = this.jwtSecret || 'dev-secret-change-me';
+      return jwt.verify(token, secret) as TokenPayload;
     } catch (error) {
       throw new Error('Invalid or expired token');
     }

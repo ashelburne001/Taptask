@@ -78,8 +78,8 @@ export class NotificationService {
       }
 
       await axios.post(process.env.TEAMS_WEBHOOK_URL, {
-        @type: 'MessageCard',
-        @context: 'https://schema.org/extensions',
+        '@type': 'MessageCard',
+        '@context': 'https://schema.org/extensions',
         summary: title,
         themeColor: '0078D4',
         sections: [

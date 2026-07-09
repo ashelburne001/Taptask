@@ -4,6 +4,11 @@ import bcrypt from 'bcrypt';
 
 async function seed() {
   try {
+    // Initialize database
+    const dbPath = './data/taptask.db'
+    await db.initialize(dbPath)
+    console.log('✓ Database initialized')
+
     // Create departments
     const deptIds = {
       icu: uuidv4(),

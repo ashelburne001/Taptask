@@ -14,15 +14,15 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.1",
-    "axios": "^1.6.2",
-    "zustand": "^4.4.7",
+    "react-router-dom": "^6.20.0",
+    "axios": "^1.6.0",
+    "zustand": "^4.4.0",
     "date-fns": "^2.30.0",
-    "@hookform/resolvers": "^3.3.4",
-    "react-hook-form": "^7.48.3",
-    "zod": "^3.22.4",
+    "@hookform/resolvers": "^3.3.0",
+    "react-hook-form": "^7.48.0",
+    "zod": "^3.22.0",
     "lucide-react": "^0.294.0",
-    "html5-qrcode": "^2.3.8"
+    "html5-qrcode": "^2.3.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

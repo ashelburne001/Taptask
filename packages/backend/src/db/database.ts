@@ -2,8 +2,9 @@ import sqlite3 from 'sqlite3';
 import { promisify } from 'util';
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = new URL('.', import.meta.url).pathname;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export class Database {
   private db: sqlite3.Database | null = null;

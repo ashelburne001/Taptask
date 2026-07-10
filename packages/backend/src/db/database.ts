@@ -26,8 +26,20 @@ export class Database {
   }
 
   private async runSchema(): Promise<void> {
-    const schemaPath = path.join(__dirname, 'schema.sql');
-    const schema = await fs.readFile(schemaPath, 'utf-8');
+    // Try dist directory first, then fall back to src directory for development
+    let schemaPath = path.join(__dirname, 'schema.sql');
+    try {
+      const schema = await fs.readFile(schemaPath, 'utf-8');
+      await this.executeSchema(schema);
+    } catch {
+      // Fallback to src directory for development mode
+      schemaPath = path.join(__dirname, '../../src/db/schema.sql');
+      const schema = await fs.readFile(schemaPath, 'utf-8');
+      await this.executeSchema(schema);
+    }
+  }
+
+  private async executeSchema(schema: string): Promise<void> {
     const statements = schema
       .split(';')
       .map(s => s.trim())

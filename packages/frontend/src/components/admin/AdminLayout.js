@@ -8,8 +8,8 @@ import DepartmentsPage from './departments/DepartmentsPage';
 import ItemsPage from './items/ItemsPage';
 import SettingsPage from './settings/SettingsPage';
 import NFCManagementPage from './nfc/NFCManagementPage';
-// Placeholder pages - to be implemented in next phases
-const AuditLogsPage = () => _jsx("div", { className: "p-6", children: "Audit Logs - Coming Soon (Phase 6)" });
+import AuditLogsPage from './audit-logs/AuditLogsPage';
+// Placeholder page - to be implemented in next phase
 const AnalyticsPage = () => _jsx("div", { className: "p-6", children: "Analytics - Coming Soon (Phase 7)" });
 export default function AdminLayout() {
     const [sidebarOpen, setSidebarOpen] = useState(false);

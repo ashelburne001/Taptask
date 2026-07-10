@@ -7,9 +7,9 @@ import DepartmentsPage from './departments/DepartmentsPage'
 import ItemsPage from './items/ItemsPage'
 import SettingsPage from './settings/SettingsPage'
 import NFCManagementPage from './nfc/NFCManagementPage'
+import AuditLogsPage from './audit-logs/AuditLogsPage'
 
-// Placeholder pages - to be implemented in next phases
-const AuditLogsPage = () => <div className="p-6">Audit Logs - Coming Soon (Phase 6)</div>
+// Placeholder page - to be implemented in next phase
 const AnalyticsPage = () => <div className="p-6">Analytics - Coming Soon (Phase 7)</div>
 
 export default function AdminLayout() {

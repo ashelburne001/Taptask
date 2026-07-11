@@ -8,9 +8,7 @@ import ItemsPage from './items/ItemsPage'
 import SettingsPage from './settings/SettingsPage'
 import NFCManagementPage from './nfc/NFCManagementPage'
 import AuditLogsPage from './audit-logs/AuditLogsPage'
-
-// Placeholder page - to be implemented in next phase
-const AnalyticsPage = () => <div className="p-6">Analytics - Coming Soon (Phase 7)</div>
+import AnalyticsDashboard from './analytics/AnalyticsDashboard'
 
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -36,7 +34,7 @@ export default function AdminLayout() {
               <Route path="/nfc" element={<NFCManagementPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/audit-logs" element={<AuditLogsPage />} />
-              <Route path="/analytics" element={<AnalyticsPage />} />
+              <Route path="/analytics" element={<AnalyticsDashboard />} />
             </Routes>
           </div>
         </main>
